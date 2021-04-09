@@ -6,7 +6,14 @@
     (toggle-frame-maximized)
   (toggle-frame-fullscreen))
 
-(setq doom-font (font-spec :family "monospace" :size 15))
+(setq doom-font (font-spec :family "mononoki Nerd Font" :size 16)
+      doom-variable-pitch-font (font-spec :family "Liberation" :size 16))
+
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
+
+(setq global-prettify-symbols-mode t)
 
 (setq doom-theme 'doom-one)
 
@@ -25,6 +32,11 @@
 (map! :leader
       (:prefix ("m" . "matodon-toot")
        :desc "Mastodon Toot" "m" 'mastodon-toot))
+
+(require 'elfeed-goodies)
+(elfeed-goodies/setup)
+(setq elfeed-goodies/entry-pane-size 0.5)
+(add-hook 'elfeed-show-mode-hook 'visual-line-mode)
 
 (setq elfeed-feeds (quote
                     (("https://koreymoffett.com/rss.xml" Blog)
