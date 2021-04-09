@@ -1,0 +1,37 @@
+#+TITLE: Bashrc
+#+PROPERTY: header-args :tangle ~/.bashrc
+
+
+* Default
+This is the default code added by the Solus team.
+#+begin_src bash
+source /usr/share/defaults/etc/profile
+#+end_src
+
+* Style
+Currently only run neofetch because it adds a little more to the terminal, and I like the look.
+#+begin_src bash
+neofetch
+#+end_src
+
+* Prompt
+This is the Starship Prompt, I love this prompt, You can find it by a simple search for startship prompt in your web browser.
+#+begin_src bash
+ eval "$(starship init bash)"
+#+end_src
+
+* Alias
+Just some alias for things that I'm too lazy to type all the way out.
+#+begin_src bash
+alias cl="clear && neofetch"
+alias ..="cd .."
+alias ...="cd ..."
+alias sdn="sudo shutdown -h now"
+alias upgrade="sudo eopkg upgrade"
+alias dsync="~/.emacs.d/bin/doom sync"
+alias dupdate="~/.emacs.d/bin/doom upgrade"
+alias duppkg="~/.emacs.d/bin/doom upgrade --packages"
+alias web="cd ~/Documents/koreymoffett.com"
+alias ls='ls -hN --color=auto --group-directories-first'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+#+end_src
