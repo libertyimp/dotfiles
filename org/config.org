@@ -13,6 +13,7 @@ My name and email.
 #+end_src
 
 * Full-screen
+
 This allows Emacs to always open full-screen.
 
 #+begin_src elisp
@@ -26,7 +27,14 @@ This allows Emacs to always open full-screen.
 Sets fonts.
 
 #+begin_src elisp
-(setq doom-font (font-spec :family "monospace" :size 15))
+(setq doom-font (font-spec :family "mononoki Nerd Font" :size 16)
+      doom-variable-pitch-font (font-spec :family "Liberation" :size 16))
+
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
+
+(setq global-prettify-symbols-mode t)
 #+end_src
 
 * Theme
@@ -80,6 +88,16 @@ Bind to allows me to make Mastodon toots quickly.
 #+end_src
 
 * Elfeed
+
+Adds fancy features to Elfeed
+
+#+begin_src elisp
+(require 'elfeed-goodies)
+(elfeed-goodies/setup)
+(setq elfeed-goodies/entry-pane-size 0.5)
+(add-hook 'elfeed-show-mode-hook 'visual-line-mode)
+#+end_src
+
 
 Sources for RSS feed.
 
