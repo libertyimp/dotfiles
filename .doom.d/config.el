@@ -28,14 +28,13 @@
 
 (setq elfeed-feeds (quote
                     (("https://koreymoffett.com/rss.xml" Blog)
-                    ("https://lineageos.org/feed.xml" LineageOS Android)
-                    ("https://lukesmith.xyz/rss.xml" Blog)
-                    ("https://www.jeolchrono12.ml/feed.xml" Blog)
-                    ("https://reaper.im/blog.xml" Blog)
-                    ("https://news.itsfoss.com/feed/" FOSS Linux)
-                    ("https://static.fsf.org/fsforg/rss/blogs.xml" Blog FOSS)
-                    ("https://static.fsf.org/fsforg/rss/news.xml" News FOSS)
-                    ("https://www.phoronix.com/rss/php" Linux))))
+                     ("https://lineageos.org/feed.xml" LineageOS Android)
+                     ("https://lukesmith.xyz/rss.xml" Blog)
+                     ("https://www.jeolchrono12.ml/feed.xml" Blog)
+                     ("https://reaper.im/blog.xml" Blog)
+                     ("https://news.itsfoss.com/feed/" FOSS Linux)
+                     ("https://static.fsf.org/fsforg/rss/blogs.xml" Blog FOSS)
+                     ("https://static.fsf.org/fsforg/rss/news.xml" News FOSS))))
 
 (after! mastodon
   (setq mastodon-instance-url "https://fosstodon.org"))

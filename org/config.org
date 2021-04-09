@@ -3,7 +3,9 @@
 #+PROPERTY: header-args :tangle ~/.doom.d/config.el
 
 * Personal Info
+
 My name and email.
+
 #+begin_src elisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 (setq user-full-name "Korey Moffett"
@@ -11,7 +13,6 @@ My name and email.
 #+end_src
 
 * Full-screen
-
 This allows Emacs to always open full-screen.
 
 #+begin_src elisp
@@ -85,14 +86,13 @@ Sources for RSS feed.
 #+begin_src elisp
 (setq elfeed-feeds (quote
                     (("https://koreymoffett.com/rss.xml" Blog)
-                    ("https://lineageos.org/feed.xml" LineageOS Android)
-                    ("https://lukesmith.xyz/rss.xml" Blog)
-                    ("https://www.jeolchrono12.ml/feed.xml" Blog)
-                    ("https://reaper.im/blog.xml" Blog)
-                    ("https://news.itsfoss.com/feed/" FOSS Linux)
-                    ("https://static.fsf.org/fsforg/rss/blogs.xml" Blog FOSS)
-                    ("https://static.fsf.org/fsforg/rss/news.xml" News FOSS)
-                    ("https://www.phoronix.com/rss/php" Linux))))
+                     ("https://lineageos.org/feed.xml" LineageOS Android)
+                     ("https://lukesmith.xyz/rss.xml" Blog)
+                     ("https://www.jeolchrono12.ml/feed.xml" Blog)
+                     ("https://reaper.im/blog.xml" Blog)
+                     ("https://news.itsfoss.com/feed/" FOSS Linux)
+                     ("https://static.fsf.org/fsforg/rss/blogs.xml" Blog FOSS)
+                     ("https://static.fsf.org/fsforg/rss/news.xml" News FOSS))))
 #+end_src
 
 * Mastodon
