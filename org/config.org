@@ -9,9 +9,9 @@
       user-mail-address "kaosfang@tutanota.com")
 #+end_src
 
-* Fullscreen
+* Full-screen
 
-This allows Emacs to always open fullscreen.
+This allows Emacs to always open full-screen.
 
 #+begin_src elisp
 (if (eq initial-window-system 'x)
@@ -51,13 +51,22 @@ Sets number lines in my case to relative
 (setq display-line-numbers-type 'relative)
 #+end_src
 
-* Binds 'ii' to ESC
+* Key Binds
 
 Allows me to press 'i' followed by another 'i' quickly to act as the ESC to save my pinky.
 
 #+begin_src elisp
 (setq-default evil-escape-key-sequence "ii")
 (setq-default evil-escape-delay 0.2)
+#+end_src
+
+Allows for spell checking quickly use :leader followed by s + s to check just one word, to check the entire document for spelling errors :leader followed by s + d
+
+#+begin_src elisp
+(map! :leader
+      (:prefix ("s" . "ispell")
+       :desc "Spell check word" "s" 'ispell-word
+       :desc "Spell check document" "d" 'ispell))
 #+end_src
 
 * Elfeed
@@ -75,6 +84,15 @@ Sources for RSS feed.
                     ("https://static.fsf.org/fsforg/rss/blogs.xml" Blog FOSS)
                     ("https://static.fsf.org/fsforg/rss/news.xml" News FOSS)
                     ("https://www.phoronix.com/rss/php" Linux))))
+#+end_src
+
+* Mastodon
+
+Allows me to access mastodon from within Emacs, the (after! mastodon) is what allows me to overwrite the default setting of mastodon-instance-url, which is "mastodon.social"
+
+#+begin_src elisp
+(after! mastodon
+  (setq mastodon-instance-url "https://fosstodon.org"))
 #+end_src
 
 * Org Bullets
