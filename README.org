@@ -1,0 +1,12 @@
+#+TITLE: README
+#+AUTHOR: Korey Moffett
+
+* doom.d
+
+Contains configuration files for Doom Emacs.
+
+* Org
+
+Contains readable config files.
+
+*** I will try to keep this readme up to date :)
