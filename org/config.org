@@ -3,6 +3,7 @@
 #+PROPERTY: header-args :tangle ~/.doom.d/config.el
 
 * Personal Info
+My name and email.
 #+begin_src elisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 (setq user-full-name "Korey Moffett"
@@ -21,7 +22,7 @@ This allows Emacs to always open full-screen.
 
 * Fonts
 
-Sets fonts
+Sets fonts.
 
 #+begin_src elisp
 (setq doom-font (font-spec :family "monospace" :size 15))
@@ -45,7 +46,7 @@ Sets the directory you want .org files saved to.
 
 * Numbers Line
 
-Sets number lines in my case to relative
+Sets number lines in my case to relative.
 
 #+begin_src elisp
 (setq display-line-numbers-type 'relative)
@@ -60,13 +61,21 @@ Allows me to press 'i' followed by another 'i' quickly to act as the ESC to save
 (setq-default evil-escape-delay 0.2)
 #+end_src
 
-Allows for spell checking quickly use :leader followed by s + s to check just one word, to check the entire document for spelling errors :leader followed by s + d
+Allows for spell checking quickly use :leader followed by s + s to check just one word, to check the entire document for spelling errors :leader followed by s + d.
 
 #+begin_src elisp
 (map! :leader
       (:prefix ("s" . "ispell")
        :desc "Spell check word" "s" 'ispell-word
        :desc "Spell check document" "d" 'ispell))
+#+end_src
+
+Bind to allows me to make Mastodon toots quickly.
+
+#+begin_src elisp
+(map! :leader
+      (:prefix ("m" . "matodon-toot")
+       :desc "Mastodon Toot" "m" 'mastodon-toot))
 #+end_src
 
 * Elfeed

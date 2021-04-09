@@ -22,6 +22,10 @@
        :desc "Spell check word" "s" 'ispell-word
        :desc "Spell check document" "d" 'ispell))
 
+(map! :leader
+      (:prefix ("m" . "matodon-toot")
+       :desc "Mastodon Toot" "m" 'mastodon-toot))
+
 (setq elfeed-feeds (quote
                     (("https://koreymoffett.com/rss.xml" Blog)
                     ("https://lineageos.org/feed.xml" LineageOS Android)
