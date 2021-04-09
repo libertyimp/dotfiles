@@ -17,6 +17,11 @@
 (setq-default evil-escape-key-sequence "ii")
 (setq-default evil-escape-delay 0.2)
 
+(map! :leader
+      (:prefix ("s" . "ispell")
+       :desc "Spell check word" "s" 'ispell-word
+       :desc "Spell check document" "d" 'ispell))
+
 (setq elfeed-feeds (quote
                     (("https://koreymoffett.com/rss.xml" Blog)
                     ("https://lineageos.org/feed.xml" LineageOS Android)
@@ -27,6 +32,9 @@
                     ("https://static.fsf.org/fsforg/rss/blogs.xml" Blog FOSS)
                     ("https://static.fsf.org/fsforg/rss/news.xml" News FOSS)
                     ("https://www.phoronix.com/rss/php" Linux))))
+
+(after! mastodon
+  (setq mastodon-instance-url "https://fosstodon.org"))
 
 (use-package org-bullets
   :ensure t
