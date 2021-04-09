@@ -1,9 +1,13 @@
+# Default config directory
 source /usr/share/defaults/etc/profile
 
+# Style
 neofetch
 
+# Prompt
  eval "$(starship init bash)"
 
+# Alias
 alias cl="clear && neofetch"
 alias ..="cd .."
 alias ...="cd ..."
