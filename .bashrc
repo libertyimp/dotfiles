@@ -7,6 +7,7 @@ neofetch
 alias cl="clear && neofetch"
 alias ..="cd .."
 alias ...="cd ..."
+alias ll="ls -la"
 alias sdn="sudo shutdown -h now"
 alias upgrade="sudo eopkg upgrade"
 alias dsync="~/.emacs.d/bin/doom sync"
