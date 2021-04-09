@@ -50,4 +50,3 @@
 ;(unpin! t)
 (package! elfeed-goodies)
 (package! org-bullets)
-(package! emms)
