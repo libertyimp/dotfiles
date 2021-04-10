@@ -184,3 +184,5 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+(setq byte-compile-warnings '(cl-functions))
