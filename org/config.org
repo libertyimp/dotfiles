@@ -12,9 +12,10 @@ My name and email.
       user-mail-address "kaosfang@tutanota.com")
 #+end_src
 
+
 * Full-screen
 
-This allows Emacs to always open full-screen.
+Emacs always opens full-screen.
 
 #+begin_src elisp
 (if (eq initial-window-system 'x)
@@ -27,8 +28,7 @@ This allows Emacs to always open full-screen.
 Sets fonts.
 
 #+begin_src elisp
-(setq doom-font (font-spec :family "mononoki Nerd Font" :size 16)
-      doom-variable-pitch-font (font-spec :family "Liberation" :size 16))
+(setq doom-font (font-spec :family "mononoki Nerd Font" :size 16))
 
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
@@ -44,10 +44,6 @@ Sets theme
 #+begin_src elisp
 (setq doom-theme 'doom-one)
 #+end_src
-
-* Org Directory
-
-Sets the directory you want .org files saved to.
 
 #+begin_src elisp
 (setq org-directory "~/org/")
@@ -87,6 +83,7 @@ Bind to allows me to make Mastodon toots quickly.
        :desc "Mastodon Toot" "m" 'mastodon-toot))
 #+end_src
 
+
 * Elfeed
 
 Adds fancy features to Elfeed
@@ -122,7 +119,7 @@ Allows me to access mastodon from within Emacs, the (after! mastodon) is what al
   (setq mastodon-instance-url "https://fosstodon.org"))
 #+end_src
 
-* Org Bullets
+* Org
 
 Allows Org Mode to be that much prettier by adding bullets in place of *.
 

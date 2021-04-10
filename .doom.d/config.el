@@ -2,9 +2,6 @@
 (setq user-full-name "Korey Moffett"
       user-mail-address "kaosfang@tutanota.com")
 
-(defvar +doom-dashboard-banner-file "~/.doom.d/gnu.jpeg")
-(defvar +doom-dashboard-banner-dir "~.doom.d")
-
 (if (eq initial-window-system 'x)
     (toggle-frame-maximized)
   (toggle-frame-fullscreen))
