@@ -15,7 +15,7 @@ neofetch
 #+end_src
 
 * Prompt
-This is the Starship Prompt, I love this prompt, You can find it by a simple search for startship prompt in your web browser.
+This is the Starship Prompt, I love this prompt, You can find it by a simple search for starship prompt in your web browser.
 #+begin_src bash
  eval "$(starship init bash)"
 #+end_src
