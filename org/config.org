@@ -9,7 +9,7 @@ My name and email.
 #+begin_src elisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 (setq user-full-name "Korey Moffett"
-      user-mail-address "kaosfang@tutanota.com")
+      user-mail-address "korey.moffett87@gmail.com")
 #+end_src
 
 
@@ -83,6 +83,13 @@ Bind to allows me to make Mastodon toots quickly.
        :desc "Mastodon Toot" "m" 'mastodon-toot))
 #+end_src
 
+Open Elfeed quickly.
+
+#+begin_src elisp
+(map! :leader
+      (:prefix ("e" , "elfeed")
+       :desc "Open Elfeed" "e" 'elfeed))
+#+end_src
 
 * Elfeed
 

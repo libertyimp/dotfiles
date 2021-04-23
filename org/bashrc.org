@@ -24,8 +24,10 @@ This is the Starship Prompt, I love this prompt, You can find it by a simple sea
 Just some alias for things that I'm too lazy to type all the way out.
 #+begin_src bash
 alias cl="clear && neofetch"
+alias python="python3"
 alias ..="cd .."
 alias ...="cd ..."
+alias mkd="mkdir"
 alias ll="ls -la"
 alias sdn="sudo shutdown -h now"
 alias upgrade="sudo eopkg upgrade"
