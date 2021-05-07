@@ -8,10 +8,15 @@ This is the default code added by the Solus team.
 source /usr/share/defaults/etc/profile
 #+end_src
 
+* Vi mode
+This allows me so be extra fast in the shell by using vi magic
+#+begin_src bash
+set -o vi
+#+end_src
+
 * Style
 Currently only run neofetch because it adds a little more to the terminal, and I like the look.
 #+begin_src bash
-neofetch
 #+end_src
 
 * Prompt
@@ -23,17 +28,16 @@ This is the Starship Prompt, I love this prompt, You can find it by a simple sea
 * Alias
 Just some alias for things that I'm too lazy to type all the way out.
 #+begin_src bash
-alias cl="clear && neofetch"
+alias cl="clear"
 alias python="python3"
 alias ..="cd .."
 alias ...="cd ..."
 alias mkd="mkdir"
-alias ll="ls -la"
+alias check="shellcheck"
 alias sdn="sudo shutdown -h now"
-alias upgrade="sudo eopkg upgrade"
 alias dsync="~/.emacs.d/bin/doom sync"
 alias dupdate="~/.emacs.d/bin/doom upgrade"
 alias web="cd ~/Documents/koreymoffett.com"
-alias ls='ls -hN --color=auto --group-directories-first'
+alias ls='exa -lhg --git --group-directories-first'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 #+end_src
