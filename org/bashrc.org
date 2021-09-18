@@ -2,42 +2,45 @@
 #+PROPERTY: header-args :tangle ~/.bashrc
 
 
-* Default
-This is the default code added by the Solus team.
+* Style
+This is just the extra little stuff I like to have in my shell just as eye candy
 #+begin_src bash
-source /usr/share/defaults/etc/profile
+neofetch
+
+(cat ~/.cache/wal/sequences &)
+cat ~/.cache/wal/sequences
+source ~/.cache/wal/colors-tty.sh
 #+end_src
 
-* Vi mode
-This allows me so be extra fast in the shell by using vi magic
+* Manpager
+This sets my default manpager to Bat
+#+begin_src bash
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+#+end_src
+
+* Vi Mode
+This allows me to be extra fast in the shell by using the magic of Vi
 #+begin_src bash
 set -o vi
 #+end_src
 
-* Style
-Currently only run neofetch because it adds a little more to the terminal, and I like the look.
+* Bash Completion
 #+begin_src bash
-#+end_src
-
-* Prompt
-This is the Starship Prompt, I love this prompt, You can find it by a simple search for starship prompt in your web browser.
-#+begin_src bash
- eval "$(starship init bash)"
+source /etc/profile.d/bash_completion.sh
 #+end_src
 
 * Alias
-Just some alias for things that I'm too lazy to type all the way out.
+I'm too lazy to type some stuff so I made my life simpler by shorting everything here, also I made some alias for things i didn't feel like putting in my PATH
 #+begin_src bash
-alias cl="clear"
-alias python="python3"
-alias ..="cd .."
-alias ...="cd ..."
-alias mkd="mkdir"
-alias check="shellcheck"
-alias sdn="sudo shutdown -h now"
-alias dsync="~/.emacs.d/bin/doom sync"
-alias dupdate="~/.emacs.d/bin/doom upgrade"
-alias web="cd ~/Documents/koreymoffett.com"
-alias ls='exa -lhg --git --group-directories-first'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias cl='clear && neofetch'
+alias sdn="shutdown -h now"
+alias doomsync='~/.emacs.d/bin/doom sync'
+alias doomupdate='~/.emacs.d/bin/doom update'
 #+end_src

@@ -1,143 +1,46 @@
-#+TITLE: Emacs Configuration
-#+AUTHOR: Korey Moffett
-#+PROPERTY: header-args :tangle ~/.doom.d/config.el
+#+TITLE: Bashrc
+#+PROPERTY: header-args :tangle ~/.bashrc
 
-* Personal Info
 
-My name and email.
+* Style
+This is just the extra little stuff I like to have in my shell just as eye candy
+#+begin_src bash
+neofetch
 
-#+begin_src elisp
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-(setq user-full-name "Korey Moffett"
-      user-mail-address "korey.moffett87@gmail.com")
+(cat ~/.cache/wal/sequences &)
+cat ~/.cache/wal/sequences
+source ~/.cache/wal/colors-tty.sh
 #+end_src
 
-
-* Full-screen
-
-Emacs always opens full-screen.
-
-#+begin_src elisp
-(if (eq initial-window-system 'x)
-    (toggle-frame-maximized)
-  (toggle-frame-fullscreen))
+* Manpager
+This sets my default manpager to Bat
+#+begin_src bash
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 #+end_src
 
-* Fonts
-
-Sets fonts.
-
-#+begin_src elisp
-(setq doom-font (font-spec :family "mononoki Nerd Font" :size 16))
-
-(custom-set-faces!
-  '(font-lock-comment-face :slant italic)
-  '(font-lock-keyword-face :slant italic))
-
-(setq global-prettify-symbols-mode t)
+* Vi Mode
+This allows me to be extra fast in the shell by using the magic of Vi
+#+begin_src bash
+set -o vi
 #+end_src
 
-* Theme
-
-Sets theme
-
-#+begin_src elisp
-(setq doom-theme 'doom-vibrant)
+* Bash Completion
+#+begin_src bash
+source /etc/profile.d/bash_completion.sh
 #+end_src
 
-#+begin_src elisp
-(setq org-directory "~/org/")
-#+end_src
-
-* Numbers Line
-
-Sets number lines in my case to relative.
-
-#+begin_src elisp
-(setq display-line-numbers-type 'relative)
-#+end_src
-
-* Key Binds
-
-Allows me to press 'i' followed by another 'i' quickly to act as the ESC to save my pinky.
-
-#+begin_src elisp
-(setq-default evil-escape-key-sequence "ii")
-(setq-default evil-escape-delay 0.2)
-#+end_src
-
-Allows for spell checking quickly use :leader followed by s + s to check just one word, to check the entire document for spelling errors :leader followed by s + d.
-
-#+begin_src elisp
-(map! :leader
-      (:prefix ("s" . "ispell")
-       :desc "Spell check word" "s" 'ispell-word
-       :desc "Spell check document" "d" 'ispell))
-#+end_src
-
-Bind to allows me to make Mastodon toots quickly.
-
-#+begin_src elisp
-(map! :leader
-      (:prefix ("m" . "matodon-toot")
-       :desc "Mastodon Toot" "m" 'mastodon-toot))
-#+end_src
-
-Open Elfeed quickly.
-
-#+begin_src elisp
-(map! :leader
-      (:prefix ("e" , "elfeed")
-       :desc "Open Elfeed" "e" 'elfeed))
-#+end_src
-
-* Elfeed
-
-Adds fancy features to Elfeed
-
-#+begin_src elisp
-(require 'elfeed-goodies)
-(elfeed-goodies/setup)
-(setq elfeed-goodies/entry-pane-size 0.5)
-(add-hook 'elfeed-show-mode-hook 'visual-line-mode)
-#+end_src
-
-
-Sources for RSS feed.
-
-#+begin_src elisp
-(setq elfeed-feeds (quote
-                    (("https://koreymoffett.com/rss.xml" Blog)
-                     ("https://lineageos.org/feed.xml" LineageOS Android)
-                     ("https://lukesmith.xyz/rss.xml" Blog)
-                     ("https://www.jeolchrono12.ml/feed.xml" Blog)
-                     ("https://reaper.im/blog.xml" Blog)
-                     ("https://news.itsfoss.com/feed/" FOSS Linux)
-                     ("https://static.fsf.org/fsforg/rss/blogs.xml" Blog FOSS)
-                     ("https://static.fsf.org/fsforg/rss/news.xml" News FOSS))))
-#+end_src
-
-* Mastodon
-
-Allows me to access mastodon from within Emacs, the (after! mastodon) is what allows me to overwrite the default setting of mastodon-instance-url, which is "mastodon.social"
-
-#+begin_src elisp
-(after! mastodon
-  (setq mastodon-instance-url "https://fosstodon.org"))
-#+end_src
-
-* Org
-
-Allows Org Mode to be that much prettier by adding bullets in place of *.
-
-#+begin_src elisp
-(use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda  () (org-bullets-mode 1))))
-
-(use-package org-superstar
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
+* Alias
+I'm too lazy to type some stuff so I made my life simpler by shorting everything here, also I made some alias for things i didn't feel like putting in my PATH
+#+begin_src bash
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias cl='clear && neofetch'
+alias sdn="shutdown -h now"
+alias doomsync='~/.emacs.d/bin/doom sync'
+alias doomupdate='~/.emacs.d/bin/doom update'
 #+end_src
