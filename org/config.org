@@ -11,7 +11,7 @@ My name and email.
 * Fonts
 Sets fonts.
 #+begin_src elisp
-(setq doom-font (font-spec :family "mononoki Nerd Font" :size 16))
+(setq doom-font (font-spec :family "monospace" :size 16))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
@@ -24,17 +24,83 @@ Sets theme
 (setq doom-theme 'doom-one)
 #+end_src
 
+* Org
 #+begin_src elisp
 (setq org-directory "~/org/")
 #+end_src
+
 * Numbers Line
 Sets number lines in my case to relative.
 #+begin_src elisp
 (setq display-line-numbers-type 'relative)
 #+end_src
+
 * Key Binds
 Allows me to press 'i' followed by another 'i' quickly to act as the ESC to save my pinky.
 #+begin_src elisp
 (setq-default evil-escape-key-sequence "ii")
 (setq-default evil-escape-delay 0.2)
+#+end_src
+
+Allows for spell checking quickly use :leader followed by s + s to check just one word, to check the entire document :leader followed by s + d.
+#+begin_src elisp
+(map! :leader
+      (:prefix ("s" . "ispell")
+       :desc "Spell check word" "s" 'ispell-word
+       :desc "Spell check document" "d" 'ispell))
+#+end_src
+
+Bind to allow for Mastodon toots quickly.
+#+begin_src elisp
+(map! :leader
+      :prefix ("m" . "mastodon-toot")
+      :desc "Mastodon Toot" "m" 'mastodon-toot)
+#+end_src
+
+Open Elfeed quickly.
+
+#+begin_src elisp
+(map! :leader
+      (:prefix ("e" , "elfeed")
+       :desc "Open Elfeed" "e" 'elfeed))
+#+end_src
+
+* Elfeed
+
+Adds fancy features to Elfeed
+#+begin_src elisp
+(require 'elfeed-goodies)
+(elfeed-goodies/setup)
+(setq elfeed-goodies/entry-pane-size 0.5)
+(add-hook 'elfeed-show-mode-hook 'visual-line-mode)
+#+end_src
+Sources for RSS feed.
+#+begin_src elisp
+(setq elfeed-feeds (quote
+                    (("https://koreymoffett.com/rss.xml" Blog)
+                     ("https://lineageos.org/feed.xml" LineageOS Android)
+                     ("https://lukesmith.xyz/rss.xml" Blog)
+                     ("https://www.jeolchrono12.ml/feed.xml" Blog)
+                     ("https://reaper.im/blog.xml" Blog)
+                     ("https://news.itsfoss.com/feed/" FOSS Linux)
+                     ("https://static.fsf.org/fsforg/rss/blogs.xml" Blog FOSS)
+                     ("https://static.fsf.org/fsforg/rss/news.xml" News FOSS))))
+#+end_src
+* Mastodon
+Allows me to access mastodon from within Emacs, the (after! mastodon) is what allows me to overwrite the default setting of mastodon-instance-url, which is "mastodon.social"
+#+begin_src elisp
+(after! mastodon
+  (setq mastodon-instance-url "https://fosstodon.org"))
+#+end_src
+* Org
+Allows Org Mode to be that much prettier by adding bullets in place of *.
+#+begin_src elisp
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda  () (org-bullets-mode 1))))
+(use-package org-superstar
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 #+end_src
