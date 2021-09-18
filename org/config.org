@@ -1,46 +1,40 @@
-#+TITLE: Bashrc
-#+PROPERTY: header-args :tangle ~/.bashrc
-
-
-* Style
-This is just the extra little stuff I like to have in my shell just as eye candy
-#+begin_src bash
-neofetch
-
-(cat ~/.cache/wal/sequences &)
-cat ~/.cache/wal/sequences
-source ~/.cache/wal/colors-tty.sh
+#+AUTHOR: Korey Moffett
+#+PROPERTY: header-args :tangle ~/.doom.d/config.el
+* Personal Info
+My name and email.
+#+begin_src elisp
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+(setq user-full-name "Korey Moffett"
+      user-mail-address "korey.moffett87@gmail.com")
 #+end_src
 
-* Manpager
-This sets my default manpager to Bat
-#+begin_src bash
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+* Fonts
+Sets fonts.
+#+begin_src elisp
+(setq doom-font (font-spec :family "mononoki Nerd Font" :size 16))
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
+(setq global-prettify-symbols-mode t)
 #+end_src
 
-* Vi Mode
-This allows me to be extra fast in the shell by using the magic of Vi
-#+begin_src bash
-set -o vi
+* Theme
+Sets theme
+#+begin_src elisp
+(setq doom-theme 'doom-one)
 #+end_src
 
-* Bash Completion
-#+begin_src bash
-source /etc/profile.d/bash_completion.sh
+#+begin_src elisp
+(setq org-directory "~/org/")
 #+end_src
-
-* Alias
-I'm too lazy to type some stuff so I made my life simpler by shorting everything here, also I made some alias for things i didn't feel like putting in my PATH
-#+begin_src bash
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias cl='clear && neofetch'
-alias sdn="shutdown -h now"
-alias doomsync='~/.emacs.d/bin/doom sync'
-alias doomupdate='~/.emacs.d/bin/doom update'
+* Numbers Line
+Sets number lines in my case to relative.
+#+begin_src elisp
+(setq display-line-numbers-type 'relative)
+#+end_src
+* Key Binds
+Allows me to press 'i' followed by another 'i' quickly to act as the ESC to save my pinky.
+#+begin_src elisp
+(setq-default evil-escape-key-sequence "ii")
+(setq-default evil-escape-delay 0.2)
 #+end_src
