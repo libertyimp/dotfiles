@@ -5,7 +5,7 @@
 * Style
 This is just the extra little stuff I like to have in my shell just as eye candy
 #+begin_src bash
-neofetch
+pfetch
 
 (cat ~/.cache/wal/sequences &)
 cat ~/.cache/wal/sequences
@@ -32,15 +32,15 @@ source /etc/profile.d/bash_completion.sh
 * Alias
 I'm too lazy to type some stuff so I made my life simpler by shorting everything here, also I made some alias for things i didn't feel like putting in my PATH
 #+begin_src bash
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias cl='clear && neofetch'
-alias sdn="shutdown -h now"
-alias doomsync='~/.emacs.d/bin/doom sync'
-alias doomupdate='~/.emacs.d/bin/doom update'
+alias \
+        ls='ls -hN --color=auto --group-directories-first' \
+        cp='cp -iv' \
+        rm='rm -vI' \
+        ka='killall' \
+        mkd='mkdir -pv' \
+        grep='grep --color=auto' \
+        cl='clear && pfetch' \
+        sdn="shutdown -h now" \
+        doomsync='~/.emacs.d/bin/doom sync' \
+        doomupdate='~/.emacs.d/bin/doom update' \
 #+end_src

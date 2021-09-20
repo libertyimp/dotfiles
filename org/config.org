@@ -53,8 +53,9 @@ Allows for spell checking quickly use :leader followed by s + s to check just on
 Bind to allow for Mastodon toots quickly.
 #+begin_src elisp
 (map! :leader
-      :prefix ("m" . "mastodon-toot")
-      :desc "Mastodon Toot" "m" 'mastodon-toot)
+      (:prefix ("m" . "mastodon-toot")
+      :desc "Mastodon Toot" "m" 'mastodon-toot
+      :desc "Mastodon Home" "h" 'mastodon))
 #+end_src
 
 Open Elfeed quickly.
