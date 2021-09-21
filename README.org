@@ -1,12 +1,8 @@
 #+TITLE: README
 #+AUTHOR: Korey Moffett
 
+* .config
+config files are in this folder
+
 * doom.d
-
-Contains configuration files for Doom Emacs.
-
-* Org
-
-Contains readable config files.
-
-*** I will try to keep this readme up to date :)
+dooom emacs configs
