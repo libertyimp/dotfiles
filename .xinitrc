@@ -1,0 +1,2 @@
+wal -R
+emacs --daemon
