@@ -1,8 +1,4 @@
 #+TITLE: README
 #+AUTHOR: Korey Moffett
 
-* .config
-config files are in this folder
-
-* doom.d
-dooom emacs configs
+* Just my personal dotfiles and configs
